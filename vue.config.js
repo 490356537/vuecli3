@@ -1,32 +1,29 @@
-// vue.config.js
-
-
-if (process.env.NODE_ENV === 'development') {
-    let api = '/api/'
-} else {
-    let api = ''
+const config = require("./config/serve_or_build");  // proxy 配置接口
+let proxy = [];
+for(let item of config.PROXYSAPI){
+    proxy = proxy.concat({
+        [item.module_name]: {//代理api
+            target: item.module_url,//服务器api地址
+            changeOrigin: false,//是否跨域
+            ws: true, // proxy websockets
+            pathRewrite: {
+                [`^${item.module_name}`]: [item.module_name]//需要rewrite的
+            }
+        }
+    });
 }
+
+
 module.exports = {
     //runtimeCompiler: true,
     publicPath: "./", // 配置基本url
-
-
-
     devServer: {
         //disableHostCheck: true,
         open: true, //运行打开浏览器
         inline: true, //开启页面自动刷新
-        proxy: {
-            '/api': {//代理api
-                target: "http://bwfw.x-punk.top",//服务器api地址
-                changeOrigin: false,//是否跨域
-                ws: true, // proxy websockets
-                pathRewrite: {//重写路径
-                    '^/api': ''
-                }
-            },
-        }
+        proxy: proxy[0]
     },
+
     pages: {
         index: {
             entry: "src/pages/index/index.js",
