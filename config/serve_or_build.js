@@ -1,5 +1,5 @@
 //项目域名地址
-const test_api_url = '111';//开发环境
+const test_api_url = '1110000';//开发环境
 const serve_api_url = '2220000';//生产环境 build post绝对路径 不需要绝对路径可留空
 
 // development 为开发环境 单一端口域名
