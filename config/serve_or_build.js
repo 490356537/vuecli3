@@ -1,6 +1,6 @@
 //项目域名地址
 const test_api_url = '111';//开发环境
-const serve_api_url = '222';//生产环境 build post绝对路径 不需要绝对路径可留空
+const serve_api_url = '2220000';//生产环境 build post绝对路径 不需要绝对路径可留空
 
 // development 为开发环境 单一端口域名
 //let api_url = process.env.NODE_ENV === 'development' ? '/api' : serve_api_url;
