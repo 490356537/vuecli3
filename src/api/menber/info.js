@@ -8,7 +8,6 @@ export function post_demo(params) {
     params: params,
   };
   return common_post(axios_confgin).then(res => {
-    console.log(123);
     return res;
   });
 }
