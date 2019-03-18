@@ -1,14 +1,8 @@
 import axios from "axios";
-
 const config = require("../../config/serve_or_build");  // build 需要域名
-
 
 /* ajax post请求 */
 export function common_post(axios_confgin) {
-    /*服务器地址*/
-    /*const config = {
-        baseURL: '/api', //
-    };*/
 
     /* 创建 form data 格式 */
     let form_data = new FormData();

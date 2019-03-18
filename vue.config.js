@@ -1,6 +1,6 @@
 const config = require("./config/serve_or_build");  // proxy 配置接口
 let proxy = [];
-for(let item of config.PROXYSAPI){
+for (let item of config.PROXYSAPI) {
     proxy = proxy.concat({
         [item.module_name]: {//代理api
             target: item.module_url,//服务器api地址
@@ -12,8 +12,6 @@ for(let item of config.PROXYSAPI){
         }
     });
 }
-
-
 module.exports = {
     //runtimeCompiler: true,
     publicPath: "./", // 配置基本url
@@ -24,6 +22,7 @@ module.exports = {
         proxy: proxy[0]
     },
 
+    /*多页面配置*/
     pages: {
         index: {
             entry: "src/pages/index/index.js",
@@ -40,10 +39,19 @@ module.exports = {
             template: "src/pages/view02/view02.html",
             filename: "view02.html"
         }
-        // 当使用只有入口的字符串格式时，
-        // 模板会被推导为 `public/subpage.html`
-        // 并且如果找不到的话，就回退到 `public/index.html`。
-        // 输出文件名会被推导为 `subpage.html`。
-        //subpage: 'src/subpage/main.js'
-    }
+    },
+
+    /* px 转换 rem 配置*/
+    css: {
+        loaderOptions: {
+            css: {},
+            postcss: {
+                plugins: [
+                    require('postcss-px2rem')({
+                        remUnit: 37.5
+                    })
+                ]
+            }
+        }
+    },
 };
