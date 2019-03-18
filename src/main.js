@@ -3,7 +3,8 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store";
 /* vue-cli-plugin-iview 插件的默认调用位置 */
-//import './plugins/iview.js'
+import './plugins/iview.js'
+console.log(123);
 
 Vue.config.productionTip = false;
 
