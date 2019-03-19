@@ -25,19 +25,22 @@ module.exports = {
     /*多页面配置*/
     pages: {
         index: {
-            entry: "src/pages/index/index.js",
-            template: "src/pages/index/index.html",
-            filename: "index.html"
+            entry: "src/pages/index/main.js",
+            template: "public/index.html",
+            filename: "index.html",
+            title: '首页啦~'
         },
         view01: {
-            entry: "src/pages/view01/view01.js",
-            template: "src/pages/view01/view01.html",
-            filename: "view01.html"
+            entry: "src/pages/view01/main.js",
+            template: "public/page2.html",
+            filename: "view01.html",
+            title: 'zi页啦~'
         },
         view02: {
-            entry: "src/pages/view02/view02.js",
-            template: "src/pages/view02/view02.html",
-            filename: "view02.html"
+            entry: "src/pages/view02/main.js",
+            template: "public/page2.html",
+            filename: "view02.html",
+            title: 'zi页2啦~'
         }
     },
 

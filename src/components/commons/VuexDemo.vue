@@ -2,8 +2,8 @@
     <div>
         <h3>这里是子组件</h3>
         <div>VuexDemoText: {{msg}}</div>
-        <Button type="primary" @click="clickHandler">修改父组件文本</Button>
-        <button type="button" @click="clickHandler2">修改自己文本</button>
+        <Button type="primary" @click="clickHandler">修改父组件文本</Button>|
+        <Button type="primary" @click="clickHandler2">修改自己文本</Button>
     </div>
 </template>
 
@@ -20,7 +20,6 @@
         },
         methods: {
             clickHandler(){
-                //this.$store.commit('newName', 'upButText');
                 store.commit("newName", "子组件修改父组件后的文本");
             },
             clickHandler2(){
